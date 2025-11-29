@@ -1,0 +1,994 @@
+/* GENERAL STYLES WITH SMOOTH ANIMATIONS */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Updated background for a fresh, layered feel */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    flex: 1;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* NAVBAR ANIMATIONS & ENHANCEMENTS (Kept user's premium navbar styling) */
+.navbar {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.navbar:hover::before {
+    left: 100%;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    animation: textShine 3s ease-in-out infinite;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* NAV ITEMS WITH SLIDE-IN ANIMATION */
+.navbar-nav .nav-item {
+    margin: 0 0.3rem;
+    position: relative;
+    animation: slideInDown 0.6s ease both;
+}
+
+.navbar-nav .nav-item:nth-child(1) { animation-delay: 0.1s; }
+.navbar-nav .nav-item:nth-child(2) { animation-delay: 0.2s; }
+.navbar-nav .nav-item:nth-child(3) { animation-delay: 0.3s; }
+.navbar-nav .nav-item:nth-child(4) { animation-delay: 0.4s; }
+.navbar-nav .nav-item:nth-child(5) { animation-delay: 0.5s; }
+
+.nav-link {
+    color: #ecf0f1 !important;
+    font-weight: 500;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    margin: 0.2rem 0;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* BUTTON STYLES IN NAVBAR (Kept user's premium button styling) */
+.navbar .btn {
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.navbar .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.navbar .btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+.btn-outline-light {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar utilities and animations kept as is */
+
+
+/* JUMBOTRON & HOMEPAGE INTRO WITH GLASS MORPHISM */
+.jumbotron-carousel {
+    padding: 4rem 2rem;
+    margin-bottom: 3rem;
+    /* Glass Morphism Effect */
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.jumbotron-carousel::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    animation: rotate 15s linear infinite;
+    z-index: -1;
+}
+
+.jumbotron-carousel h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+/* ---------------------------------
+ * CAROUSEL STYLING (Two-Column Layout)
+ * --------------------------------- */
+#productCarousel {
+    height: 450px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 40px;
+    position: relative;
+}
+
+
+.product-img-wrapper {
+    width: 100%;
+    /* 100% padding-bottom equals the width, creating a perfect square */
+    padding-bottom: 100%; 
+    position: relative;
+    overflow: hidden;
+    /* Match the top border radius of the card */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    /* MODIFIED: Clean background for containment */
+    background-color: #f8f9fa;
+}
+
+.carousel-item {
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 450px;
+    position: relative;
+}
+
+.carousel-item.active {
+    animation: slideInFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-item .row {
+    height: 100%;
+    margin: 0;
+}
+
+/* DYNAMIC BACKGROUND COLORS WITH GRADIENTS */
+.bg-slide-blue {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+.bg-slide-orange {
+    background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
+}
+.bg-slide-default {
+    background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+}
+
+/* Left Column: Image with Floating Animation */
+.carousel-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.carousel-product-img {
+    height: 85%;
+    width: 85%;
+    object-fit: contain;
+    padding: 25px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    animation: float 3s ease-in-out infinite;
+}
+
+.carousel-item:hover .carousel-product-img {
+    transform: scale(1.08) rotate(2deg);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+}
+
+/* Right Column: Details with Staggered Animation */
+.carousel-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    text-align: left;
+    color: #2c3e50;
+    padding: 0 40px;
+}
+
+.carousel-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: slideInFromLeft 0.8s 0.2s both;
+}
+
+.carousel-description {
+    font-size: 1.1rem;
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    animation: slideInFromLeft 0.8s 0.4s both;
+}
+
+.price-stock-group {
+    display: flex;
+    gap: 40px;
+    /* Ensure price/stock text is aligned nicely */
+    align-items: flex-end; 
+    animation: slideInFromLeft 0.8s 0.6s both;
+}
+
+.price-info h3 {
+    color: #e74c3c;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stock-info h3 {
+    color: #27ae60;
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.stock-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    border-radius: 2px;
+    transform: scaleX(0);
+    animation: scaleIn 0.5s 1s forwards;
+}
+
+/* Enhanced Navigation Controls (Kept user's enhanced controls) */
+.carousel-control-prev, .carousel-control-next {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0.8;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    opacity: 1;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 25px;
+    height: 25px;
+    background-size: 100% 100%;
+    /* Use a contrasting color for the icon button */
+    background-color: #3498db; 
+    border-radius: 50%;
+    filter: invert(1);
+}
+
+/* ---------------------------------
+ * PRODUCT CARD STYLING (Grid Alignment)
+ * --------------------------------- */
+.row {
+    /* Ensure columns inside the product grid align cleanly */
+    align-items: stretch;
+}
+
+.product-card {
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    /* High contrast box-shadow for better design */
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.08),
+        0 1px 5px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Essential for grid alignment in the row */
+    height: 100%; 
+    overflow: hidden;
+    position: relative;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    z-index: 3; /* Bring above image/content */
+}
+
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0,0,0,0.15),
+        0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* *** CRITICAL FIX APPLIED HERE *** */
+.product-img-wrapper {
+    width: 100%;
+    /* REMOVED: padding-bottom: 100%; (This enforced the square aspect ratio) */
+    
+    /* ADDED: Fixed height appropriate for vertical book covers */
+    height: 300px; 
+    max-height: 320px;
+    
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+    background-color: #f8f9fa;
+    
+    /* ADDED: Flex properties to center the contained image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card-img {
+    /* Set the image to fill the wrapper's space */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* FIX: Keeps the whole image visible (contains the image) */
+    object-fit: contain; 
+    
+    /* Padding to frame the image nicely within the wrapper's boundaries */
+    padding: 15px; 
+    
+    background-color: transparent;
+    
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: brightness(0.98); 
+
+    border-radius: 0; 
+}
+
+.product-card:hover .product-card-img {
+    /* Keep the hover effect, slightly adjusted for 'contain' */
+    transform: scale(1.05); /* Less aggressive scale */
+    filter: brightness(1.05);
+}
+/* *** END OF CRITICAL FIX *** */
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.card-price {
+    font-size: 1.8rem;
+    color: #e74c3c;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    display: inline-block;
+}
+
+.card-price::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #e74c3c;
+    transition: width 0.4s ease;
+}
+
+.product-card:hover .card-price::after {
+    width: 100%;
+}
+
+/* NEW: Enhanced Button Style for Product Cards */
+.product-card .btn-primary {
+    /* Base style matching the primary blue/info theme */
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: white; /* Ensure text is white */
+}
+
+.product-card .btn-primary:hover {
+    /* Hover effect */
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    transform: translateY(-3px) scale(1.02); /* Slightly less aggressive scale than navbar buttons */
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.product-card .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+}
+
+.product-card .btn-primary:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+
+/* Staggered Animation Delays (extended up to 8 for a typical screen row) */
+/* The staggered effect is applied to the individual product-card class */
+.col-lg-3:nth-child(1) .product-card { animation-delay: 0.1s; }
+.col-lg-3:nth-child(2) .product-card { animation-delay: 0.2s; }
+.col-lg-3:nth-child(3) .product-card { animation-delay: 0.3s; }
+.col-lg-3:nth-child(4) .product-card { animation-delay: 0.4s; }
+.col-lg-3:nth-child(5) .product-card { animation-delay: 0.5s; }
+.col-lg-3:nth-child(6) .product-card { animation-delay: 0.6s; }
+.col-lg-3:nth-child(7) .product-card { animation-delay: 0.7s; }
+.col-lg-3:nth-child(8) .product-card { animation-delay: 0.8s; }
+
+
+/* ADMIN DASHBOARD STYLING (Kept user's admin styling) */
+.admin-card {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s;
+}
+
+.admin-card:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+    color: white;
+}
+
+.admin-card:hover::before {
+    left: 100%;
+}
+
+.admin-card:hover .card-title,
+.admin-card:hover .card-text {
+    color: white;
+}
+
+/* UTILITIES WITH ENHANCED ANIMATIONS (Kept user's utility styling) */
+.alert.alert-info {
+    border: none;
+    background: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+    color: #004085;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15);
+    animation: pulse 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert.alert-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #007bff, #0056b3);
+}
+
+/* ---------------------------------
+ * AUTHENTICATION CARD STYLING (Login/Register)
+ * --------------------------------- */
+
+.auth-card {
+    border: none;
+    border-radius: 20px;
+    /* Glass Morphism Look */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* High contrast box-shadow */
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.1),
+        0 5px 15px rgba(0,0,0,0.08);
+    
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    /* Animation on load */
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 25px 50px rgba(0,0,0,0.15),
+        0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Login Header (Green Gradient) */
+.auth-header-green {
+    /* Green Gradient matching the Login button/Success theme */
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+    color: white;
+    padding: 20px 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: none; /* Override Bootstrap default */
+    position: relative;
+}
+
+/* Registration Header (Blue Gradient) */
+.auth-header-blue {
+    /* Blue Gradient matching the View Details button/Register button theme */
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+    color: white;
+    padding: 20px 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: none; 
+    position: relative;
+}
+
+/* Reused Header Styling */
+.auth-header-green h2, .auth-header-blue h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    /* Subtle shine effect */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); 
+}
+
+.auth-card .card-body {
+    padding: 30px 25px;
+}
+
+/* Input Field Styling (Reused across Login/Register) */
+.auth-input {
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.auth-input:focus {
+    /* Focus color matching the primary site purple/blue highlight */
+    border-color: #667eea; 
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+/* Custom Green Action Button (for Login) */
+.btn-action-green {
+    /* Use the same gradient style as your success theme */
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action-green:hover {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.6);
+}
+
+/* Custom Blue Action Button (for Register) */
+.btn-action-blue {
+    /* Use the same gradient style as your product 'View Details' buttons */
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-weight: 700;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action-blue:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
+}
+
+
+/* Sign up / Login link styling (Reused across Login/Register) */
+.link-signup {
+    color: #3498db; /* Blue color from your View Details button */
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.link-signup:hover {
+    color: #2980b9;
+    border-bottom: 2px solid #3498db;
+    text-decoration: none;
+}
+
+
+/* KEYFRAME ANIMATIONS (Kept all user's keyframes) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 0.6), 0 0 30px rgba(102, 126, 234, 0.4);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+
+@media (min-width: 992px) {
+    /* Ensures the card can expand fully into the space provided by the col-lg-6 class */
+    .container .col-lg-6 {
+        max-width: 100%; 
+        width: 100%;
+    }
+}
+
+/* RESPONSIVE ENHANCEMENTS */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 0.2rem 0;
+        animation: slideInLeft 0.5s ease both;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.8rem 1rem !important;
+        margin: 0.1rem 0;
+        text-align: center;
+        border-radius: 10px;
+    }
+    
+    .navbar .btn {
+        margin: 0.3rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar-collapse {
+        background: rgba(44, 62, 80, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 15px;
+        margin-top: 1rem;
+        padding: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: slideInLeft 0.4s ease;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    
+    .navbar {
+        padding: 0.6rem 0;
+    }
+    
+    .jumbotron-carousel {
+        padding: 2rem 1rem;
+    }
+    
+    .jumbotron-carousel h1 {
+        font-size: 2rem;
+    }
+    
+    #productCarousel {
+        height: auto;
+        min-height: 350px;
+    }
+    
+    .carousel-item {
+        height: auto;
+        min-height: 350px;
+    }
+    
+    .carousel-title {
+        font-size: 1.8rem;
+    }
+    
+    .carousel-image-container {
+        /* On small screens, stack the image above the text */
+        height: 200px; 
+    }
+
+    .carousel-details-container {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .price-stock-group {
+        justify-content: center;
+    }
+}
